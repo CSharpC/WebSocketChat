@@ -42,9 +42,15 @@ namespace UWPChatClient
 
         private async void Connect(object sender, RoutedEventArgs e)
         {
+            var b = (Button)sender;
+            b.IsEnabled = false;
+            busy.IsActive = true;
             var u = new User(nicknameBox.Text);
             var json = JsonConvert.SerializeObject(u, Formatting.Indented);
             var ch = await ChatAPI.ListChannels(u);
+            b.IsEnabled = true;
+            b.IsEnabled = true;
+            Frame.Navigate(typeof(Pages.ChannelsPage), ch);
         }
     }
 }

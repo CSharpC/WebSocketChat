@@ -9,6 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel VerticalAlignment="Center">
+            <ProgressRing Width="96" Height="96" Margin="8" IsActive="False" Name="busy" />
             <TextBlock TextAlignment="Center" Text="Welcome to the chat!" Style="{StaticResource HeaderTextBlockStyle}" />
             <TextBox Margin="8,4" PlaceholderText="Nickname" Name="nicknameBox" TextChanged="NicknameChanged" />
             <Button Margin="8,4" HorizontalAlignment="Center" Name="connectButton" IsEnabled="False" Click="Connect">Connect!</Button>

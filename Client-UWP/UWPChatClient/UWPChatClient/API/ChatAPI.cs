@@ -18,7 +18,7 @@ namespace UWPChatClient.API
         public async static Task<Channel[]> ListChannels(User u)
         {
             using (var h = Http)
-            using (var res = await h.GetAsync("channels/list", new StringContent(body, Encoding.UTF8, "application/json")))
+            using (var res = await h.GetAsync("channels/list?client_id="+Uri.EscapeDataString(u.Id.ToString())))
             {
                 return JArray.Parse(await res.Content.ReadAsStringAsync()).ToObject<Channel[]>();
             }
