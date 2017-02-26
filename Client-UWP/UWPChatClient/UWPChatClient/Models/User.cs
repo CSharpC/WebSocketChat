@@ -18,6 +18,6 @@ namespace UWPChatClient.Models
         [JsonProperty("id")]
         public Guid Id { get; set; }
         [JsonProperty("nickname")]
-        public string Name { get; set; }
+        public string Name { get; set; } 
     }
 }

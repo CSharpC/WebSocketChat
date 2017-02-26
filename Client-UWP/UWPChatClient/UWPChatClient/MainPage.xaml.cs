@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UWPChatClient.API;
 using UWPChatClient.Models;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -39,10 +40,11 @@ namespace UWPChatClient
             }
         }
 
-        private void Connect(object sender, RoutedEventArgs e)
+        private async void Connect(object sender, RoutedEventArgs e)
         {
             var u = new User(nicknameBox.Text);
             var json = JsonConvert.SerializeObject(u, Formatting.Indented);
+            var ch = await ChatAPI.ListChannels(u);
         }
     }
 }
